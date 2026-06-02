@@ -30,7 +30,8 @@ client = TestClient(app)
 
 def test_create_todo():
     r = client.post("/todos", json={"title": "Apprendre CI/CD"})
-    assert r.status_code == 201
+    # assert r.status_code == 201
+    assert r.status_code == 200  # volontairement faux !
     assert r.json()["title"] == "Apprendre CI/CD"
     assert r.json()["done"] == False
 
